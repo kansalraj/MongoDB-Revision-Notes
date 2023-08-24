@@ -1,7 +1,7 @@
 # MongoDB-Revision-Notes
-
+<details>
+<summary>**Introduction to MongoDB**</summary>
 **Introduction to MongoDB**
-
 MongoDB is a versatile, open-source, and cross-platform distributed document database. Developed by MongoDB Inc., it falls under the NoSQL database category, providing a dynamic approach to data storage and retrieval.
 
 1. **Ease of Use**:
@@ -34,7 +34,7 @@ MongoDB is a versatile, open-source, and cross-platform distributed document dat
    - Aims to provide a robust, feature-rich database solution with exceptional performance.
 
 In summary, MongoDB is a versatile NoSQL database that simplifies data storage through document-oriented architecture, excels in scalability by facilitating distributed data management, offers a range of features for advanced data manipulation, and maintains high performance through a comprehensive approach to architecture and features.
-
+</details>
 
 **Basic Concepts of MongoDB: Documents, Collections, Databases, and Namespaces**
 
