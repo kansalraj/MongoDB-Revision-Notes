@@ -1,6 +1,7 @@
 # MongoDB-Revision-Notes
 <details>
 <summary><b>Introduction to MongoDB</b></summary>
+
    
 MongoDB is a versatile, open-source, and cross-platform distributed document database. Developed by MongoDB Inc., it falls under the NoSQL database category, providing a dynamic approach to data storage and retrieval.
 
@@ -39,6 +40,7 @@ In summary, MongoDB is a versatile NoSQL database that simplifies data storage t
 
 <details>
 <summary><b>Basic Concepts of MongoDB: Documents, Collections, Databases, and Namespaces</b></summary>
+
    
 **Data Formats:**
 - MongoDB uses JSON (JavaScript Object Notation) and BSON (Binary JSON) formats for data representation and storage.
