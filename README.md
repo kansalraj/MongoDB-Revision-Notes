@@ -218,3 +218,74 @@ In summary, MongoDB utilizes JSON and BSON for data representation. Data is stor
 
 </details>
 
+<details>
+<summary><b>findOne() find() Method & Projection </b></summary>
+<br/>
+   
+## MongoDB findOne()
+
+- `findOne()` retrieves a single document from a collection based on a specified condition.
+- Syntax: `db.collection.findOne(query, projection)`
+- `query`: Criteria for document selection.
+- `projection`: Specifies fields to be returned.
+- Omitting `query` returns the first document according to natural order.
+- Default projection includes all fields.
+- Use `{field: 1}` to include a field, `{field: 0}` to exclude.
+- `_id` is included by default; exclude with `_id: 0`.
+- If multiple documents match, first based on storage order is returned.
+
+### Examples:
+
+1. No arguments: `db.products.findOne()`
+2. With filter: `db.products.findOne({_id: 2})`
+3. Select fields: `db.products.findOne({_id: 5}, {name: 1})`
+
+## MongoDB find()
+
+- `find()` retrieves documents from a collection.
+- Syntax: `db.collection.find(query, projection)`
+- `query`: Selection criteria; `{}` returns all documents.
+- `projection`: Fields to be returned.
+- `_id` is included by default; exclude with `_id: false`.
+- Returned as a cursor; automatically iterated in mongo shell.
+- Use `it` command to continue iteration.
+
+### Examples:
+
+1. All documents: `db.books.find()`
+2. Specific document: `db.books.find({_id: 10})`
+3. Select fields: `db.books.find({categories: 'Java'}, {title: 1, isbn: 1})`
+
+
+## Projection in MongoDB Queries
+
+1. **Returning all fields in matching documents**:
+   - `db.products.find({price: 899});`
+
+2. **Returning specified fields including the `_id` field**:
+   - `db.products.find({}, {name: 1, price: 1});`
+   - To exclude `_id`, explicitly specify in projection:
+     `db.products.find({}, {name: 1, price: 1, _id: 0});`
+
+3. **Returning all fields except for some fields**:
+   - Use projection to exclude fields:
+     `db.products.find({_id:1}, {releaseDate: 0, spec: 0, storage: 0});`
+
+4. **Returning fields in embedded documents**:
+   - Include fields in embedded documents:
+     `db.products.find({_id:1}, {name: 1, price: 1, "spec.screen": 1});`
+
+   - In MongoDB 4.4+, specify embedded fields using nested form:
+     `db.products.find({_id:1}, {name: 1, price: 1, spec : { screen: 1 }});`
+
+5. **Projecting fields on embedded documents in an array**:
+   - Project fields from embedded arrays:
+     `db.products.find({}, {name: 1, "inventory.qty": 1});`
+
+## Summary:
+
+- Use `{<field>: 1}` to include the `<field>` and `{<field>: 0}` to exclude it.
+- Use `{ <embeddedDocument>.<field>: 1}` to include `<field>` from `<embeddedDocument>`, and `{ <embeddedDocument>.<field>: 0}` to suppress it.
+- Use `{ <arrayField>.<field>: 1}` to include `<field>` from embedded array, and `{ <arrayField>.<field>: 0}` to exclude it.
+
+</details>
