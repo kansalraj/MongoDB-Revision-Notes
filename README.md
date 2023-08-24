@@ -34,10 +34,12 @@ MongoDB is a versatile, open-source, and cross-platform distributed document dat
    - Aims to provide a robust, feature-rich database solution with exceptional performance.
 
 In summary, MongoDB is a versatile NoSQL database that simplifies data storage through document-oriented architecture, excels in scalability by facilitating distributed data management, offers a range of features for advanced data manipulation, and maintains high performance through a comprehensive approach to architecture and features.
-</details>
 
-**Basic Concepts of MongoDB: Documents, Collections, Databases, and Namespaces**
 
+<details>
+<summary><b>Basic Concepts of MongoDB: Documents, Collections, Databases, and Namespaces</b></summary>
+
+   
 **Data Formats:**
 - MongoDB uses JSON (JavaScript Object Notation) and BSON (Binary JSON) formats for data representation and storage.
 - JSON is a structured data format based on JavaScript ECMA-262 3rd edition.
@@ -91,9 +93,13 @@ In summary, MongoDB is a versatile NoSQL database that simplifies data storage t
 
 In summary, MongoDB utilizes JSON and BSON for data representation. Data is stored as documents in collections within databases. Namespaces allow for fully qualified collection referencing. Understanding these fundamental concepts is essential for effectively working with MongoDB's data storage and retrieval.
 
+</details>
 
-**Summary of Commonly Used MongoDB Data Types:**
 
+<details>
+<summary><b>Commonly Used MongoDB Data Types</b></summary>
+
+   
 1. **Null Type**:
    - Represents null or absence of a field.
    - Example: `{ "isbn": null }`
@@ -154,5 +160,7 @@ In summary, MongoDB utilizes JSON and BSON for data representation. Data is stor
          "insertedId" : ObjectId("5f2fcae09b58c38603442a4f")
      }
      ```
+</details>
 
-In this tutorial, you've learned about the most commonly used MongoDB data types, including null, boolean, number, string, date, regular expression, array, embedded document, and Object ID. These data types provide the foundation for structuring and storing diverse data within MongoDB documents.
+
+
