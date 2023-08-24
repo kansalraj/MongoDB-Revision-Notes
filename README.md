@@ -2,6 +2,7 @@
 <details>
 <summary><b>Introduction to MongoDB</b></summary>
 <br/>
+   
 MongoDB is a versatile, open-source, and cross-platform distributed document database. Developed by MongoDB Inc., it falls under the NoSQL database category, providing a dynamic approach to data storage and retrieval.
 
 1. **Ease of Use**:
@@ -40,6 +41,7 @@ In summary, MongoDB is a versatile NoSQL database that simplifies data storage t
 <details>
 <summary><b>Basic Concepts of MongoDB: Documents, Collections, Databases, and Namespaces</b></summary>
 <br/>
+   
 **Data Formats:**
 - MongoDB uses JSON (JavaScript Object Notation) and BSON (Binary JSON) formats for data representation and storage.
 - JSON is a structured data format based on JavaScript ECMA-262 3rd edition.
@@ -99,6 +101,7 @@ In summary, MongoDB utilizes JSON and BSON for data representation. Data is stor
 <details>
 <summary><b>Commonly Used MongoDB Data Types</b></summary>
 <br/>
+   
 1. **Null Type**:
    - Represents null or absence of a field.
    - Example: `{ "isbn": null }`
