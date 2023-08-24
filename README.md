@@ -164,5 +164,57 @@ In summary, MongoDB utilizes JSON and BSON for data representation. Data is stor
      ```
 </details>
 
+<details>
+<summary><b>insertOne() insertMany() Method: </b></summary>
+<br/>
 
+**insertOne() Method:**
+
+- **Purpose**: insertOne() method is used to insert a single document into a collection.
+- **Syntax**:
+  ```javascript
+  db.collection.insertOne(
+     <document>,
+     { writeConcern: <document>}
+  );
+  ```
+- **Parameters**:
+  - `<document>`: The document you want to insert (required).
+  - `writeConcern`: Optional argument for the level of acknowledgment.
+- **Return**: The method returns a document with fields:
+  - `acknowledged`: True if operation executed with write concern, false if not.
+  - `insertedId`: Value of `_id` field of the inserted document.
+
+- If collection doesn't exist, insertOne() creates it.
+- If `_id` not specified, MongoDB generates a unique `_id` (ObjectId) for the document.
+- If `_id` specified, it must be unique within the collection.
+
+**insertMany() Method:**
+
+- **Purpose**: insertMany() method inserts multiple documents into a collection.
+- **Syntax**:
+  ```javascript
+  db.collection.insertMany(
+     [document1, document2, ...],
+     {
+        writeConcern: <document>,
+        ordered: <boolean>
+     }
+  );
+  ```
+- **Parameters**:
+  - `[document1, document2, ...]`: Array of documents to be inserted.
+  - `writeConcern`: Optional write concern.
+  - `ordered`: Boolean indicating ordered/unordered insert.
+- **Return**: Document with fields:
+  - `acknowledged`: True if operation executed with write concern, false if not.
+  - `insertedIds`: Array of `_id` values of inserted documents.
+
+- Collection is created if not existing.
+- If `_id` not specified, MongoDB generates unique `_id` (ObjectId).
+- If ordered is true, inserts in order; if false, may reorder for performance.
+- Throws BulkWriteError exception in case of error.
+**If an error occurs, the ordered insert will stop while the unordered insert will continue to process for the remaining documents in the queue.**
+
+</details>
 
