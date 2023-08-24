@@ -34,11 +34,11 @@ MongoDB is a versatile, open-source, and cross-platform distributed document dat
    - Aims to provide a robust, feature-rich database solution with exceptional performance.
 
 In summary, MongoDB is a versatile NoSQL database that simplifies data storage through document-oriented architecture, excels in scalability by facilitating distributed data management, offers a range of features for advanced data manipulation, and maintains high performance through a comprehensive approach to architecture and features.
+</details>
 
 
 <details>
 <summary><b>Basic Concepts of MongoDB: Documents, Collections, Databases, and Namespaces</b></summary>
-
    
 **Data Formats:**
 - MongoDB uses JSON (JavaScript Object Notation) and BSON (Binary JSON) formats for data representation and storage.
