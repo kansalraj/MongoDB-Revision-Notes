@@ -289,3 +289,278 @@ In summary, MongoDB utilizes JSON and BSON for data representation. Data is stor
 - Use `{ <arrayField>.<field>: 1}` to include `<field>` from embedded array, and `{ <arrayField>.<field>: 0}` to exclude it.
 
 </details>
+
+<details>
+<summary><b>COMPARISON QUERY OPERATORS - $eq $lt $gt $gte $ne $in $nin</b></summary>
+<br/>
+
+**Introduction to the MongoDB $eq Operator:**
+
+The `$eq` operator is a comparison query operator in MongoDB that allows you to match documents based on whether the value of a specified field is equal to a given value.
+
+**Example 1: Using $eq to Match Field Value:**
+
+Query: Select all documents from the `products` collection where the value of the `price` field equals 899.
+
+```javascript
+db.products.find({
+    price: { $eq: 899 }
+}, {
+    name: 1,
+    price: 1
+})
+```
+
+**Example 2: Using $eq with Embedded Documents:**
+
+Query: Select documents where the value of the `ram` field in the `spec` document equals 4.
+
+```javascript
+db.products.find({
+    "spec.ram": { $eq: 4 }
+}, {
+    name: 1,
+    "spec.ram": 1
+})
+```
+
+**Example 3: Using $eq with Arrays:**
+
+Query: Select documents where the `color` array contains an element with the value "black".
+
+```javascript
+db.products.find({
+    color: { $eq: "black" }
+}, {
+    name: 1,
+    color: 1
+})
+```
+
+**Example 4: Using $eq with Dates:**
+
+Query: Select documents with `releaseDate` equal to 2020-05-14.
+
+```javascript
+db.products.find({
+    releaseDate: { $eq: new ISODate("2020-05-14") }
+}, {
+    name: 1,
+    releaseDate: 1
+})
+```
+
+**Introduction to the MongoDB $lt Operator:**
+
+The `$lt` operator is a comparison query operator that allows you to select documents where the value of a field is less than a specified value.
+
+**Example 1: Using $lt to Match Field Values:**
+
+Query: Select documents where `price` is less than 799.
+
+```javascript
+db.products.find({
+    price: { $lt: 799 }
+}, {
+    name: 1,
+    price: 1
+})
+```
+
+**Example 2: Using $lt with Embedded Documents:**
+
+Query: Select documents where the value of the `screen` field in the `spec` document is less than 7.
+
+```javascript
+db.products.find({
+    "spec.screen": { $lt: 7 }
+}, {
+    name: 1,
+    "spec.screen": 1
+})
+```
+
+**Example 3: Using $lt with Arrays:**
+
+Query: Select documents where the `storage` array has at least one element less than 128.
+
+```javascript
+db.products.find({
+    storage: { $lt: 128 }
+}, {
+    name: 1,
+    storage: 1
+})
+```
+
+**Example 4: Using $lt with Dates:**
+
+Query: Select documents with `releaseDate` before 2015-01-01.
+
+```javascript
+db.products.find({
+    releaseDate: { $lt: new ISODate('2015-01-01') }
+}, {
+    name: 1,
+    releaseDate: 1
+})
+```
+
+**Introduction to the MongoDB $lte Operator:**
+
+The `$lte` operator is a comparison query operator that selects documents where the value of a field is less than or equal to a specified value. The syntax is the same as `$lt`.
+
+**Introduction to the MongoDB $gt Operator:**
+
+The `$gt` operator is a comparison query operator that selects documents where the value of a field is greater than a specified value. The syntax is the same as `$lt`.
+
+**Introduction to the MongoDB $gte Operator:**
+
+The `$gte` operator is a comparison query operator that selects documents where the value of a field is greater than or equal to a specified value. The syntax is the same as `$lt`.
+
+**Introduction to the MongoDB $ne Operator:**
+
+The `$ne` operator is a comparison query operator that selects documents where the value of a field is not equal to a specified value. It includes documents that don't contain the field.
+
+**Example 1: Using $ne to Match Field Values:**
+
+Query: Select documents where `price` is not equal to 899.
+
+```javascript
+db.products.find({
+    price: { $ne: 899 }
+}, {
+    name: 1,
+    price: 1
+})
+```
+
+**Example 2: Using $ne with Embedded Documents:**
+
+Query: Select documents where the value of the `screen` field in the `spec` document is not equal to 9.7.
+
+```javascript
+db.products.find({
+    "spec.screen": { $ne: 9.7 }
+}, {
+    name: 1,
+    "spec.screen": 1
+})
+```
+
+**Example 3: Using $ne with Arrays:**
+
+Query: Select documents where the `storage` array does not contain an element with the value 128.
+
+```javascript
+db.products.find({
+    storage: { $ne: 128 }
+}, {
+    name: 1,
+    storage: 1
+})
+```
+
+**Example 4: Using $ne with Dates:**
+
+Query: Select documents where `releaseDate` is not equal to 2015-01-14.
+
+```javascript
+db.products.find({
+    releaseDate: { $ne: new ISODate('2015-01-14') }
+}, {
+    name: 1,
+    releaseDate: 1
+})
+```
+
+**Introduction to the MongoDB $in Operator:**
+
+The `$in` operator is a comparison query operator that selects documents where the value of a field matches any value in an array.
+
+**Example 1: Using $in to Match Field Values:**
+
+Query: Select documents where `price` is either 599 or 799.
+
+```javascript
+db.products.find({
+    price: { $in: [699, 799] }
+}, {
+    name: 1,
+    price: 1
+})
+```
+
+**Example 2: Using $in with Arrays:**
+
+Query: Select documents where the `color` array contains "black" or "white".
+
+```javascript
+db.products.find({
+    color: { $in: ["black", "white"] }
+}, {
+    name: 1,
+    color: 1
+})
+```
+
+**Example 3: Using $in with Regular Expressions:**
+
+Query: Select documents where the `color` array contains elements matching /^g+/ or /^w+/ regular expressions.
+
+```javascript
+db.products.find({
+    color: { $in: [/^g+/, /^w+/] }
+}, {
+    name: 1,
+    color: 1
+})
+```
+
+**Introduction to the MongoDB $nin Operator:**
+
+The `$nin` operator is a comparison query operator that selects documents where the value of a field is not equal to any value in an array or where the field does not exist.
+
+**Example 1: Using $nin to Exclude Values:**
+
+Query: Select documents where `price` is neither 599 nor 799.
+
+```javascript
+db.products.find({
+    price: { $nin: [699, 799] }
+}, {
+    name: 1,
+    price: 1
+})
+```
+
+**Example 2: Using $nin with Arrays:**
+
+Query: Select documents where the `color` array does not contain "black" or "white".
+
+```javascript
+db.products.find({
+    color: { $
+
+nin: ["black", "white"] }
+}, {
+    name: 1,
+    color: 1
+})
+```
+
+**Example 3: Using $nin with Regular Expressions:**
+
+Query: Select documents where the `color` array does not contain elements matching /^g+/ or /^w+/ regular expressions.
+
+```javascript
+db.products.find({
+    color: { $nin: [/^g+/, /^w+/] }
+}, {
+    name: 1,
+    color: 1
+})
+```
+
+</details>
+
